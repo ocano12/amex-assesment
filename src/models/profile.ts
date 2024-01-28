@@ -1,9 +1,9 @@
 export interface RandomUserApiResponse {
-    results: Person[];
+    results: Profile[];
     info: ApiInfo;
 }
 
-export interface Person {
+export interface Profile {
     gender: string;
     name: Name;
     location: Location;

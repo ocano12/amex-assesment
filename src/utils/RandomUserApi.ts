@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import axios, { AxiosResponse, Method } from 'axios';
-import { RandomUserApiResponse } from '@src/models/person';
+import { RandomUserApiResponse } from '@src/models/profile';
 
 //This is probably overkill for this specific case but its good practice for endpoints with many differnt routes.
 
