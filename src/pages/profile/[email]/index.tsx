@@ -3,8 +3,9 @@ import { GetServerSideProps } from "next";
 import { getCache } from "@src/utils/caching";
 import { DetailRow, Avatar, SiteContainer } from "@src/components";
 import { DateTime } from "luxon";
-import { en, es } from "../../../translations";
-import { useRouter } from "next/router";
+import Head from "next/head";
+
+import { getLocale } from "@src/utils/locale";
 
 export interface ProfileDetailsProps {
 	profile: Profile;
@@ -35,12 +36,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 export const PersonDetails = (props: ProfileDetailsProps) => {
 	const { profile, error } = props;
-	//@ts-ignore
-	const { locale } = useRouter();
 
-	const late = locale === "es" ? es : en;
+	const late = getLocale();
 	return (
 		<SiteContainer>
+			<Head>
+				<title>{late.profile + late.details}</title>
+			</Head>
 			<div className="w-4/5 max-w-screen-lg mx-auto px-4 sm:px-0">
 				<div className="bg-white rounded p-4">
 					<div className="px-4 sm:px-0 flex flex-row">

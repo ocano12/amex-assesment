@@ -4,8 +4,7 @@ import { RandomUserApiResponse } from "@src/models/profile";
 import { setCache } from "@src/utils/caching";
 import Link from "next/link";
 import { SiteContainer } from "@src/components";
-import { es, en } from "../translations";
-import { useRouter } from "next/router";
+import { getLocale } from "../utils/locale";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	//TODO: just get 10 people for now. maybe later we can get custom number
@@ -32,10 +31,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 export default function HomePage() {
-	//@ts-ignore
-	const { locale } = useRouter();
-
-	const late = locale === "es" ? es : en;
+	const late = getLocale();
 	return (
 		<SiteContainer>
 			<div className="flex justify-center items-center flex-col">

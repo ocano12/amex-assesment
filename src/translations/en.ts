@@ -13,4 +13,5 @@ export const en = {
 	phone: " Phone Number",
 	fullName: "Full Name",
 	profileInfo: "Profile Information",
+	details: "Details",
 };

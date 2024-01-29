@@ -1,6 +1,6 @@
 import { Profile } from "@src/models/profile";
 import { Avatar } from "..";
-import { es, en } from "../../translations";
+import { getLocale } from "@src/utils/locale";
 import { useRouter } from "next/router";
 
 export interface ProfileTableProps {
@@ -28,10 +28,8 @@ export const TableDetail = ({ detail }: TableDetailProps) => {
 	return <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{detail}</td>;
 };
 export const ProfileTable = ({ profiles }: ProfileTableProps) => {
-	const { locale } = useRouter();
-
 	//this was a simple and quick way to do translation. for a more production app i18n can be used.
-	const late = es;
+	const late = getLocale();
 	const router = useRouter();
 	return (
 		<div className="px-4 sm:px-6 lg:px-8 bg-white">

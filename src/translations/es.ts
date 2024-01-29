@@ -13,4 +13,5 @@ export const es = {
 	phone: "Numero De Telefono",
 	fullName: "Nombre completo",
 	profileInfo: "Informaxion del Perfil",
+	details: "Detalles",
 };

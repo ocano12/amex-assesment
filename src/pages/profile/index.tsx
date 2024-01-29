@@ -7,8 +7,8 @@ import listIcon from "../../../public/list-ul-alt-svgrepo-com.svg";
 import gridIcon from "../../../public/grid-svgrepo-com.svg";
 import { getCache } from "@src/utils/caching";
 import { ProfileTable } from "@src/components/ProfileTable";
-import { useRouter } from "next/navigation";
-import { en, es } from "../../translations";
+import Head from "next/head";
+import { getLocale } from "@src/utils/locale";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	const profiles = getCache("profiles");
@@ -38,10 +38,9 @@ export default function ProfilePage(props: UserPageProps) {
 	const { profiles, error } = props;
 
 	//@ts-ignore
-	const { locale } = useRouter();
 
 	//this was a simple and quick way to do translation. for a more production app i18n can be used.
-	const late = locale === "es" ? es : en;
+	const late = getLocale();
 
 	const [isGrid, setIsGrid] = useState<boolean>(true);
 
@@ -87,6 +86,9 @@ export default function ProfilePage(props: UserPageProps) {
 	return (
 		<>
 			<SiteContainer>
+				<Head>
+					<title>{late.profile}</title>
+				</Head>
 				<div className="flex justify-center flex-col items-center">
 					<div className="sm:max-w-[80%] w-full flex flex-col justify-center">
 						<div className="mb-4">
