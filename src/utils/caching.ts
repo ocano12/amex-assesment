@@ -4,16 +4,20 @@
 
 type CacheType = { [key: string]: any };
 
-let cache: CacheType = {};
-
-export function setCache(key: string, data: any): void {
-    cache[key] = data;
+declare global {
+	var cache: CacheType;
 }
 
-export function getCache(key: string): any {
-    return cache[key];
-}
+global.cache = global.cache || {};
 
-export function clearCache(): void {
-    cache = {};
-}
+export const setCache = (key: string, data: any): void => {
+	global.cache[key] = data;
+};
+
+export const getCache = <T = any>(key: string): T | undefined => {
+	return global.cache[key] as T;
+};
+
+export const clearCache = (): void => {
+	global.cache = {};
+};

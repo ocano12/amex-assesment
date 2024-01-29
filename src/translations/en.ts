@@ -1,0 +1,16 @@
+export const en = {
+	users: "Users",
+	name: "Name",
+	age: "Age",
+	city: "Ctiy",
+	dob: "Date of Birth",
+	notFound: "No one found!",
+	viewProfile: "View Profiles",
+	email: "Email",
+	profile: "Profile",
+	search: "Search",
+	address: "Address",
+	phone: " Phone Number",
+	fullName: "Full Name",
+	profileInfo: "Profile Information",
+};
