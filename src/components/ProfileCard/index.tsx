@@ -9,7 +9,8 @@ export interface ProfileCard {
 
 export const ProfileCard = ({ profile, onClick }: ProfileCard) => {
     return (
-        <Link href={`/profile/${profile.email}`}
+        <Link
+            href={`/profile/${profile.email}`}
             className='flex rounded-lg bg-white text-center shadow justify-center align-middle items-center w-full cursor-pointer hover:border-indigo-300 border-2'
         >
             <div className='flex flex-col items-center p-8'>
@@ -19,6 +20,6 @@ export const ProfileCard = ({ profile, onClick }: ProfileCard) => {
                 </h3>
                 <p className='text-xs sm:text-sm leading-6 text-gray-600'>{`${profile.location.city}, ${profile.location.country}`}</p>
             </div>
-        </div>
+        </Link>
     );
 };

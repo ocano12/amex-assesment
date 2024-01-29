@@ -5,7 +5,6 @@ import { RandomUserApiResponse } from '@src/models/profile';
 //This is probably overkill for this specific case but its good practice for endpoints with many differnt routes.
 
 export const RandomUserApi = async (method: Method = 'GET', endpoint: string, data?: Request): Promise<RandomUserApiResponse> => {
-    console.log(process.env.RANDOM_USER_HOST + endpoint);
     try {
         const response = await axios({
             method,
